@@ -5,28 +5,28 @@ app = Flask(__name__)
 
 
 
-@app.route("/index", methods=["POST"])
-def index():
+# @app.route("/index", methods=["POST"])
+# def index():
     	
-	if 'image' not in request.files:
-		return jsonify({"data": "", "error": "'image' field is required.", "success": 0})
+# 	if 'image' not in request.files:
+# 		return jsonify({"data": "", "error": "'image' field is required.", "success": 0})
 
-	if request.files['image'].filename == '':
-		return jsonify({"data": "", "error": "'image' file is empty.", "success": 0})
+# 	if request.files['image'].filename == '':
+# 		return jsonify({"data": "", "error": "'image' file is empty.", "success": 0})
 
-	if request.files['image'].filename.split('.')[-1] not in ['png', 'jpg', 'jpeg']:
-		return jsonify({"data": "", "error": "'image' file must be either png or jpg or jpeg.", "success": 0})
+# 	if request.files['image'].filename.split('.')[-1] not in ['png', 'jpg', 'jpeg']:
+# 		return jsonify({"data": "", "error": "'image' file must be either png or jpg or jpeg.", "success": 0})
 
-	if 'product_id' not in request.form:
-		return jsonify({"data": "", "error": "'product_id' field is required.", "success": 0})
+# 	if 'product_id' not in request.form:
+# 		return jsonify({"data": "", "error": "'product_id' field is required.", "success": 0})
 
-	if not request.form['product_id'].isdigit():
-		return jsonify({"data": "", "error": "'product_id' must be valid integer number.", "success": 0})
+# 	if not request.form['product_id'].isdigit():
+# 		return jsonify({"data": "", "error": "'product_id' must be valid integer number.", "success": 0})
 
-	if Matcher.fit(request.form['product_id'], request.files['image']):
-		return jsonify({"data": "indexed succesfully!", "error": "", "success": 1})
-	else:
-		return jsonify({"data": "", "error": "'product_id' field is required.", "success": 0})
+# 	if Matcher.fit(request.form['product_id'], request.files['image']):
+# 		return jsonify({"data": "indexed succesfully!", "error": "", "success": 1})
+# 	else:
+# 		return jsonify({"data": "", "error": "'product_id' field is required.", "success": 0})
     		
 
 
