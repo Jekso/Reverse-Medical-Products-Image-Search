@@ -3,6 +3,7 @@ import numpy as np
 import uuid
 import cv2
 import sqlite3
+import traceback
 
 class Matcher():
 
@@ -91,6 +92,7 @@ class Matcher():
 			all_ = sorted(all_, key=lambda x: x['similarity_score'], reverse=True)
 			return all_[:4]
 		except Exception:
+			return traceback.format_exc()
 			return False
     			
 
