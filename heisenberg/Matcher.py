@@ -92,7 +92,7 @@ class Matcher():
 			all_ = sorted(all_, key=lambda x: x['similarity_score'], reverse=True)
 			return all_[:4]
 		except Exception:
-			return traceback.format_exc()
+			print(traceback.format_exc())
 			return False
     			
 

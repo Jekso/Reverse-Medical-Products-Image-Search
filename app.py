@@ -43,12 +43,11 @@ def search():
 		return jsonify({"data": "", "error": "'image' file must be either png or jpg or jpeg.", "success": 0})
 	
 	prediction = Matcher.predict(request.files['image'])
-	return jsonify({"data": prediction, "error": "", "success": 1})
 	
-	# if prediction != False:
-	# 	return jsonify({"data": prediction, "error": "", "success": 1})
-	# else:
-	# 	return jsonify({"data": "", "error": "No products found.", "success": 0})
+	if prediction != False:
+		return jsonify({"data": prediction, "error": "", "success": 1})
+	else:
+		return jsonify({"data": "", "error": "No products found.", "success": 0})
 
 
 
