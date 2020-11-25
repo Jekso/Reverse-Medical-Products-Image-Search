@@ -56,18 +56,18 @@
 						{
 							"key": "image",
 							"type": "file",
-							"src": "/C:/Users/Eslam Jekso/Desktop/test.jpg"
+							"src": "/C:/Users/Eslam Jekso/Desktop/ezz/test.jpg"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/search",
+					"raw": "http://46.165.252.41:5000/search",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"46",
+						"165",
+						"252",
+						"41"
 					],
 					"port": "5000",
 					"path": [
