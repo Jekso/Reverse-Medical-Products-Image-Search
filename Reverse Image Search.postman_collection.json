@@ -16,23 +16,28 @@
 						{
 							"key": "image",
 							"type": "file",
-							"src": "/C:/Users/Eslam Jekso/Desktop/test.jpg"
+							"src": "/E:/Jekso/Projects/Reverse Medical Products Image Search/ezz/data/pregnadays/test.jpg"
 						},
 						{
 							"key": "product_id",
 							"value": "10",
 							"type": "text"
+						},
+						{
+							"key": "product_name",
+							"value": "pregnadays",
+							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/index",
+					"raw": "http://192.168.1.103:5000/index",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"192",
+						"168",
+						"1",
+						"103"
 					],
 					"port": "5000",
 					"path": [
@@ -56,18 +61,18 @@
 						{
 							"key": "image",
 							"type": "file",
-							"src": "/C:/Users/Eslam Jekso/Desktop/ezz/test.jpg"
+							"src": "/E:/Jekso/Projects/Reverse Medical Products Image Search/ezz/data/pregnadays/0dab1691-e17e-4fbe-8f99-ae7da108cb66.jpg"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://46.165.252.41:5000/search",
+					"raw": "http://192.168.1.103:5000/search",
 					"protocol": "http",
 					"host": [
-						"46",
-						"165",
-						"252",
-						"41"
+						"192",
+						"168",
+						"1",
+						"103"
 					],
 					"port": "5000",
 					"path": [
