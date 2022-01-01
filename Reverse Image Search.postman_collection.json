@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "22b863f6-182a-4f48-aeeb-ea304d37ab99",
+		"_postman_id": "b0838580-bb79-4e1e-b490-48567ee173d8",
 		"name": "Reverse Image Search",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -16,28 +16,28 @@
 						{
 							"key": "image",
 							"type": "file",
-							"src": "/E:/Jekso/Projects/Reverse Medical Products Image Search/ezz/data/pregnadays/test.jpg"
+							"src": "/E:/Jekso/Projects/Reverse Medical Products Image Search/ezz/data/Panadol SINUS/50e5d39e-a3ac-438f-99b5-854ceef7bbcc.jpg"
 						},
 						{
 							"key": "product_id",
-							"value": "10",
+							"value": "12",
 							"type": "text"
 						},
 						{
 							"key": "product_name",
-							"value": "pregnadays",
+							"value": "panadol SINUS",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://192.168.1.103:5000/index",
+					"raw": "http://46.165.252.41:5000/index",
 					"protocol": "http",
 					"host": [
-						"192",
-						"168",
-						"1",
-						"103"
+						"46",
+						"165",
+						"252",
+						"41"
 					],
 					"port": "5000",
 					"path": [
@@ -61,18 +61,18 @@
 						{
 							"key": "image",
 							"type": "file",
-							"src": "/E:/Jekso/Projects/Reverse Medical Products Image Search/ezz/data/pregnadays/0dab1691-e17e-4fbe-8f99-ae7da108cb66.jpg"
+							"src": "/E:/Jekso/Projects/Reverse Medical Products Image Search/ezz/data/Panadol SINUS/1bc2f486-cd22-4d3a-be71-c7a0e42a2393.jpg"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://192.168.1.103:5000/search",
+					"raw": "http://46.165.252.41:5000/search",
 					"protocol": "http",
 					"host": [
-						"192",
-						"168",
-						"1",
-						"103"
+						"46",
+						"165",
+						"252",
+						"41"
 					],
 					"port": "5000",
 					"path": [
@@ -82,6 +82,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
