@@ -3,4 +3,4 @@ Instructions
 1- Get the project repo  >_ git clone https://github.com/Jekso/Reverse-Medical-Products-Image-Search.git
 2- Open Reverse-Medical-Products-Image-Search Folder
 3- Run command >_ pip3 install -r requirements.txt
-3- Add a system service for this command >_ flask run --host=0.0.0.0
+4- >_ export EDITOR=nano && crontab -e and add >_ @reboot cd /root/Reverse-Medical-Products-Image-Search/ && python3 app.py
