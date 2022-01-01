@@ -22,6 +22,8 @@ DATABASE_PATH = ASSETS_DIR + 'matcher.db'
 
 model = ResNet50(weights='imagenet')
 
+ft_vec_cache = []
+
 
 
 @app.route("/index", methods=["POST"])
@@ -75,6 +77,8 @@ def index():
 	connection.commit()
 	connection.close()
 
+	ft_vec_cache.append((product_id, product_name, features_vector))
+	# print(f'size vector in index: {len(ft_vec_cache)}')
 
 	return jsonify({"data": "indexed succesfully!", "error": "", "success": 1})
     		
@@ -83,6 +87,11 @@ def index():
 
 @app.route("/search")
 def search():
+    	
+	global ft_vec_cache
+	# print(f'size vector in search: {len(ft_vec_cache)}')
+
+
 	if 'image' not in request.files:
 		return jsonify({"data": "", "error": "'image' field is required.", "success": 0})
 
@@ -102,21 +111,28 @@ def search():
 	query_image_features_vector = model.predict(image)[0]
 
 
-	# get all features_vectors from database
-	connection = sqlite3.connect(DATABASE_PATH)
-	rows = connection.execute("SELECT * FROM features_vectors").fetchall()
-	connection.close()
-
-
-	# matching query_image features_vector with db_image features_vectors
 	matched_products = []
-	for _, features_file_name, image_name, product_name, product_id in rows:
-		file_path = DESCRIPTORS_DIR + features_file_name
-		with open(file_path, 'rb') as f:
-			features_vector = np.load(f)
+
+
+	if len(os.listdir(DESCRIPTORS_DIR)) != len(ft_vec_cache):
+		connection = sqlite3.connect(DATABASE_PATH)
+		rows = connection.execute("SELECT * FROM features_vectors").fetchall()
+		connection.close()
+		ft_vec_cache = []
+		for _, features_file_name, image_name, product_name, product_id in rows:
+			file_path = DESCRIPTORS_DIR + features_file_name
+			with open(file_path, 'rb') as f:
+				features_vector = np.load(f)
+				similarity_score = np.linalg.norm(features_vector - query_image_features_vector)
+				result = {"product_id": product_id, "product_name": product_name, "similarity_score": float(1 - similarity_score)}
+				matched_products.append(result)
+				ft_vec_cache.append((product_id, product_name, features_vector))
+	else:
+		for product_id, product_name, features_vector in ft_vec_cache:
 			similarity_score = np.linalg.norm(features_vector - query_image_features_vector)
 			result = {"product_id": product_id, "product_name": product_name, "similarity_score": float(1 - similarity_score)}
 			matched_products.append(result)
+    		
 
 	matched_products = sorted(matched_products, key=lambda x: x['similarity_score'], reverse=True)[:4]
 
