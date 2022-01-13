@@ -103,7 +103,7 @@ def search():
 	
 
 	# extract features vector
-	image = cv2.imdecode(np.fromstring(request.files['image'].read(), np.uint8), cv2.IMREAD_UNCHANGED)
+	image = cv2.imdecode(np.fromstring(request.files['image'].read(), np.uint8), cv2.IMREAD_COLOR)
 	image = np.array(image)
 	image = cv2.resize(image, (224, 224), interpolation = cv2.INTER_AREA)
 	image = np.expand_dims(image, axis=0)
