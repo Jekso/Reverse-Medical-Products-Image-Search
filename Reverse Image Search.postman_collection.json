@@ -81,6 +81,83 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Index Local",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/E:/Jekso/Projects/Reverse Medical Products Image Search/ezz/data/Panadol SINUS/50e5d39e-a3ac-438f-99b5-854ceef7bbcc.jpg"
+						},
+						{
+							"key": "product_id",
+							"value": "Te12",
+							"type": "text"
+						},
+						{
+							"key": "product_name",
+							"value": "panadol SINUS",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:5000/index",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"index"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Local",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/E:/Jekso/Projects/Reverse Medical Products Image Search/ezz/data/Panadol SINUS/1bc2f486-cd22-4d3a-be71-c7a0e42a2393.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:5000/search",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

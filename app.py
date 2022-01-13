@@ -44,8 +44,8 @@ def index():
 	if 'product_name' not in request.form:
 		return jsonify({"data": "", "error": "'product_name' field is required.", "success": 0})
 
-	if not request.form['product_id'].isdigit():
-		return jsonify({"data": "", "error": "'product_id' must be valid integer number.", "success": 0})
+	# if not request.form['product_id'].isdigit():
+	# 	return jsonify({"data": "", "error": "'product_id' must be valid integer number.", "success": 0})
 
 
 	# get image data
