@@ -5,6 +5,7 @@ import sqlite3
 import itertools
 import numpy as np
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.resnet50 import ResNet50
 from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
@@ -13,6 +14,9 @@ from tensorflow.keras.applications.resnet50 import preprocess_input, decode_pred
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 app = Flask(__name__)
+
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 ASSETS_DIR = 'assets/'
@@ -27,6 +31,7 @@ ft_vec_cache = []
 
 
 @app.route("/index", methods=["POST"])
+@cross_origin()
 def index():
     	
 	if 'image' not in request.files:
@@ -136,7 +141,9 @@ def search():
 
 	matched_products = sorted(matched_products, key=lambda x: x['similarity_score'], reverse=True)[:4]
 
-	return jsonify({"data": matched_products, "error": "", "success": 1})
+	response = jsonify({"data": matched_products, "error": "", "success": 1})
+	response.headers.add("Access-Control-Allow-Origin", "*")
+	return response
 
 
 
