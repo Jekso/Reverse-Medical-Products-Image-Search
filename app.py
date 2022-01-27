@@ -90,7 +90,8 @@ def index():
 
 
 
-@app.route("/search")
+@app.route("/search", methods=["POST"])
+@cross_origin()
 def search():
     	
 	global ft_vec_cache
@@ -142,7 +143,7 @@ def search():
 	matched_products = sorted(matched_products, key=lambda x: x['similarity_score'], reverse=True)[:4]
 
 	response = jsonify({"data": matched_products, "error": "", "success": 1})
-	response.headers.add("Access-Control-Allow-Origin", "*")
+	# response.headers.add("Access-Control-Allow-Origin", "*")
 	return response
 
 
